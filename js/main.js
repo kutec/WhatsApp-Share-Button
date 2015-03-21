@@ -18,7 +18,7 @@
 			var aTag		= targetTo.find('a');
 			var devices		= /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 			
-			if(aTag){
+			if(aTag && devices){
 				// appending WhatsApp Sharing button to container
 				box.append("<a href='#' class='wa_btn wa_btn_s' data-text='' data-href=''><i class='fa fa-whatsapp'></i> Share</a>");
 			}
