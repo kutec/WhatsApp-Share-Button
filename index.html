@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Whatsapp Share Button by kutec</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Whatsapp Share Button</h1>
+        <p>A simple jQuery plugin to integrate WhatsApp Share Button to a blog.</p>
+        <p class="view"><a href="https://github.com/kutec/WhatsApp-Share-Button">View the Project on GitHub <small>kutec/WhatsApp-Share-Button</small></a></p>
+        <ul>
+          <li><a href="https://github.com/kutec/WhatsApp-Share-Button/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kutec/WhatsApp-Share-Button/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kutec/WhatsApp-Share-Button">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="whatsapp-share-button" class="anchor" href="#whatsapp-share-button" aria-hidden="true"><span class="octicon octicon-link"></span></a>WhatsApp Share Button</h1>
+
+<p><strong>A simple jQuery plugin to integrate WhatsApp Share Button to a blog.</strong></p>
+
+<p>This plugin guide you how you can easily share URL of an article/post on WhatsApp application. Thiw allows you to configure some options for look and feel. Further that has been not decided how we can integrate this for desktop version of the WhatsApp but I will work on that too. For now you can simply follow below guideline to configure this plugin for you web project in responsive design.</p>
+
+<p>If you have any doubts or query, do not hasitate to shoot me an email on <a href="mailto:ku@kutec.co.in">ku@kutec.co.in</a>.</p>
+
+<p>Iuse to share my knowledge on my tech blog - <a href="http://teckstack.com">http://teckstack.com</a> - please subscribe to get regular updates.</p>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>This document shows you manipulation with jQuery and HTML markups.</p>
+
+<h3>
+<a id="jquery-plugin-code" class="anchor" href="#jquery-plugin-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery Plugin Code</h3>
+
+<pre>
+(function ( $ ) {
+     $.fn.wsBtn = function(options) {
+
+        // Configuration
+        var settings = $.extend({
+            // These are the defaults.
+            message     : "This button fires only in devices.",
+            bgColor     : "#090",
+            container   : ".post",
+            target      : "h2"
+        }, options );
+ 
+        // Variables
+        var el          = $(this);
+        var boxes       = el.find(settings.container);
+        var targetTo    = boxes.find(settings.target);
+        var aTag        = targetTo.find('a');
+        var devices     = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if(aTag &amp;&amp; devices){
+            
+            // get data
+            var url     = aTag.attr('href');
+            var txt     = targetTo.text();
+            
+            // appending WhatsApp Sharing button to container
+            boxes.append("<i></i> Share");
+        }
+        /*else{
+            boxes.on("click",".wa_btn", function() {
+                alert(settings.message);    
+            });
+        }*/
+ 
+    };
+ 
+}( jQuery ));
+</pre>
+
+<h3>
+<a id="sample-html-code" class="anchor" href="#sample-html-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample HTML Code</h3>
+
+<pre>
+&lt;div class="posts"&gt;
+    &lt;div class="post"&gt;
+        &lt;h2&gt;&lt;a href="http://teckstack.com/how-to-configure-sass-for-html-projects"&gt;How to Configure SASS for HTML Projects&lt;/a&gt;&lt;/h2&gt;
+
+        &lt;p&gt;SASS is booming the world with giving super powers to CSS and if you don’t know about it, you must gain your knowledge as a front end developer. The configuration for SASS is so simple but I observed that people avoids it or leave it to core developers. As I opine, when we can do more in less time, we should definitely go for it!&lt;/p&gt;            
+    &lt;/div&gt;
+    
+    &lt;div class="post"&gt;
+        &lt;h2&gt;&lt;a href="http://teckstack.com/creating-color-palette-sass"&gt;Creating Color Palette with SASS
+&lt;/a&gt;&lt;/h2&gt;
+
+        &lt;p&gt;Maintaining multiple color themes with a project is tedious task for a developer. SASS is popular CSS pre-processor. It works with simple motto – “reducing efforts with improved CSS”.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<hr>
+
+<p>Effots by <a href="https://twitter.com/kutec">@kutec</a> and posted on <a href="http://teckstack.com/whatsapp-share-button">http://teckstack.com/whatsapp-share-button</a>.</p>
+
+<p>Follow my blog: <a href="https://twitter.com/teckstack">@teckstack</a>.</p>
+
+<p>Thanks.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/kutec">kutec</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
